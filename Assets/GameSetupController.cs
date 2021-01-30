@@ -11,6 +11,8 @@ public class GameSetupController : MonoBehaviourPun, IPunObservable
 
 	public IDictionary<int, GameObject> players;
 
+	public Transform[] spawns;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -38,18 +40,24 @@ public class GameSetupController : MonoBehaviourPun, IPunObservable
 	[PunRPC]
 	void SendChat(Photon.Realtime.Player sender, object[] directions)
 	{
-		Debug.Log(string.Format("{0} {1} {2} {3} {4}", sender.IsLocal, sender.UserId, sender.IsMasterClient, sender.NickName, sender.HasRejoined));
-		Debug.Log(string.Format("h: {1}  v: {1}", directions[0], directions[1]));
+		
 		if (sender.IsLocal)
 			return;
 
-		TestMovement.Move(players[sender.ActorNumber], 1, (float) directions[0], (float) directions[1]);
+		Debug.Log(string.Format("{0} {1} {2} {3} {4} {5}", sender.IsLocal, sender.UserId, sender.IsMasterClient, sender.NickName, sender.HasRejoined, sender.ActorNumber));
+		Debug.Log(string.Format("x: {1}  z: {1}", directions[0], directions[1]));
+
+		players[sender.ActorNumber].transform.position = new Vector3((float) directions[0], 1, (float) directions[1]);
 	}
 
 	private void CreatePlayer()
 	{
 		Debug.Log("Creating Player");
-		GameObject player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
+		Vector3 spawn;
+		int playersInRoom = PhotonNetwork.CurrentRoom.Players.Keys.Count;
+		spawn = spawns[playersInRoom % 2].position;
+		spawn.z += playersInRoom % 4;
+		GameObject player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), spawn, Quaternion.identity);
 	}
 
 	public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

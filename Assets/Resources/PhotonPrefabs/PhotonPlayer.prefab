@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5623792379133880212}
   - component: {fileID: 9174076075511956489}
   - component: {fileID: 2469250541929097028}
+  - component: {fileID: -2901958402564026559}
   m_Layer: 0
   m_Name: PhotonPlayer
   m_TagString: Untagged
@@ -128,7 +129,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5805831362365812954}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4911fcd7d2af96447b206bc0c891ad2d, type: 3}
   m_Name: 
@@ -148,5 +149,19 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &-2901958402564026559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5805831362365812954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd8157c647a544368821fde0168e2b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: 200
+  pivotPrefab: {fileID: 7244684229551163969, guid: e7b0ca6556a726e47a2925ad1994b401, type: 3}
