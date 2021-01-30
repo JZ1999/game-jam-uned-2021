@@ -26,13 +26,12 @@ public class CamaraMovement : MonoBehaviour
                     player = p;
                 }
             }
-
+			if (player == null) return;
             pastPosition = player.transform.position;
             return; }
 
         diff = player.transform.position - pastPosition;
         pastPosition = player.transform.position;
-        Debug.Log(diff);
         transform.position += diff.normalized * 0.08f;
        
     }

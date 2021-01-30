@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Beam
+  - Bullet
+  - Gem
+  - Base
   layers:
   - Default
   - TransparentFX

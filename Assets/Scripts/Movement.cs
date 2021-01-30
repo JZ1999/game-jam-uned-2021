@@ -18,9 +18,14 @@ public class Movement : MonoBehaviour
 
     public bool isClick = false;
 
+	public ParticleSystem system;
+
 	// Use this for initializations
 	void Start()
-    {
+	{
+
+		system = GetComponentInChildren<ParticleSystem>();
+
 		gameController = FindObjectOfType<GameSetupController>();
 		gameController.players.Add(GetComponent<PhotonView>().OwnerActorNr, gameObject);
 
@@ -54,6 +59,10 @@ public class Movement : MonoBehaviour
 		if(pastPositionXZ[0] != transform.position.x || pastPositionXZ[1] != transform.position.z)
 		{
 			gameController.GetComponent<GameSetupController>().SendMessage(transform.position.x, transform.position.z);
+			if(!system.isPlaying)
+			{
+				system.Play();
+			}
 		}
 
 
