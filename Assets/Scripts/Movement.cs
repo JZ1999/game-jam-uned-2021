@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
 	public ParticleSystem system;
 
 	// Use this for initializations
-	void Start()
+	void Awake()
 	{
 
 		system = GetComponentInChildren<ParticleSystem>();
@@ -29,7 +29,10 @@ public class Movement : MonoBehaviour
 		gameController = FindObjectOfType<GameSetupController>();
 		gameController.players.Add(GetComponent<PhotonView>().OwnerActorNr, gameObject);
 
-		foreach (int p in gameController.players.Keys)
+        if (GetComponent<PhotonView>().isMine)
+            FindObjectOfType<Camera>().GetComponent<CamaraMovement>().enabled = true;
+
+        foreach (int p in gameController.players.Keys)
 			Debug.Log(string.Format("({2}) Key: {0}, Value: {1}", p, gameController.players[p], gameController.players[p].GetComponent<PhotonView>().isMine));
 
 		pastPositionXZ[0] = transform.position.x;

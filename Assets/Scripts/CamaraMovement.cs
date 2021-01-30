@@ -21,18 +21,19 @@ public class CamaraMovement : MonoBehaviour
         if (player == null) {
             foreach (GameObject p in collectorPlayers.players.Values)
             {
+                Debug.Log(p.GetComponent<PhotonView>().isMine);
+                Debug.Log(p.GetComponent<PhotonView>().OwnerActorNr);
                 if (p.GetComponent<PhotonView>().isMine)
                 {
                     player = p;
+                    break;
                 }
             }
-			if (player == null) return;
-            pastPosition = player.transform.position;
-            return; }
 
-        diff = player.transform.position - pastPosition;
-        pastPosition = player.transform.position;
-        transform.position += diff.normalized * 0.08f;
+            pastPosition = player.transform.position;
+        }
+
+        transform.position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z-17);
        
     }
 }
