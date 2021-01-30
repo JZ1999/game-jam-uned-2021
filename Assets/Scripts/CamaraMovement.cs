@@ -1,24 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class CamaraMovement : MonoBehaviour
 {
     public GameObject player;
     private Vector3 diff;
-    private Vector3 inicialPosition;
+    private Vector3 pastPosition;
+    public GameSetupController collectorPlayers;
 
     void Start()
-    {
-        inicialPosition = player.transform.position;
+    {   
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        diff = player.transform.position - inicialPosition;  
-        Debug.Log(diff.normalized);
-        transform.position += diff.normalized * 0.05f;
+        if (player == null) {
+            foreach (GameObject p in collectorPlayers.players.Values)
+            {
+                if (p.GetComponent<PhotonView>().isMine)
+                {
+                    player = p;
+                }
+            }
+
+            pastPosition = player.transform.position;
+            return; }
+
+        diff = player.transform.position - pastPosition;
+        pastPosition = player.transform.position;
+        Debug.Log(diff);
+        transform.position += diff.normalized * 0.08f;
        
     }
 }
