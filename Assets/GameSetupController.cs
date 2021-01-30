@@ -58,10 +58,7 @@ public class GameSetupController : MonoBehaviourPun, IPunObservable
 		spawn = spawns[playersInRoom % 2].position;
 		spawn.z += playersInRoom % 4;
 		GameObject player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), spawn, Quaternion.identity);
-		if (!player.GetComponent<PhotonView>().isMine)
-		{
-			player.GetComponent<CapsuleCollider>().enabled = false;
-		}
+		
 	}
 
 	public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
