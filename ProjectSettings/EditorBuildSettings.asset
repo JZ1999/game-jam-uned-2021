@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/joseph.unity
+    guid: 01c520fe8a13cad429911b7e332814b0
+  - enabled: 1
+    path: Assets/Scenes/multiplayer.unity
+    guid: 47dfe9bee5cf4954e887bfa7d1ee8bb8
   m_configObjects: {}
