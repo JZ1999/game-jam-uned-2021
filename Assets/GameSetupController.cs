@@ -37,7 +37,7 @@ public class GameSetupController : MonoBehaviourPun, IPunObservable
 		Vector3 spawn;
 		int playersInRoom = PhotonNetwork.CurrentRoom.Players.Keys.Count;
 		spawn = spawns[playersInRoom % 2].position;
-		player.gameObject.tag = "Team" + playersInRoom % 2;
+		player.gameObject.tag = "Team" + (playersInRoom + 1) % 2;
 
 		Debug.Log(string.Format("{0} {1} {2} {3} {4}", sender.IsLocal, sender.UserId, sender.IsMasterClient, sender.NickName, sender.HasRejoined));
 		Debug.Log(message);
@@ -66,7 +66,8 @@ public class GameSetupController : MonoBehaviourPun, IPunObservable
 		spawn.z += playersInRoom % 4;
 		string prefab = "PhotonPlayer" + ((playersInRoom % 2) + 1);
 		GameObject player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", prefab), spawn, Quaternion.identity);
-		player.gameObject.tag = "Team" + playersInRoom % 2;
+		player.gameObject.tag = "Team" + (playersInRoom) % 2;
+		Debug.Log(player.gameObject.tag);
 
 	}
 
