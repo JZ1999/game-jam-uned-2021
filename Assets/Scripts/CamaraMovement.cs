@@ -18,7 +18,9 @@ public class CamaraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (player == null) {
+            int index = 1;
             foreach (GameObject p in collectorPlayers.players.Values)
             {
                 Debug.Log(p.GetComponent<PhotonView>().isMine);
@@ -26,8 +28,9 @@ public class CamaraMovement : MonoBehaviour
                 if (p.GetComponent<PhotonView>().isMine)
                 {
                     player = p;
-                    break;
                 }
+                p.gameObject.tag = "Team" + index%2;
+                index++;
             }
 
             pastPosition = player.transform.position;

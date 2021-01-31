@@ -33,6 +33,12 @@ public class GameSetupController : MonoBehaviourPun, IPunObservable
 	[PunRPC]
 	void SendChat(Photon.Realtime.Player sender, string message)
 	{
+		GameObject player = players[sender.ActorNumber];
+		Vector3 spawn;
+		int playersInRoom = PhotonNetwork.CurrentRoom.Players.Keys.Count;
+		spawn = spawns[playersInRoom % 2].position;
+		player.gameObject.tag = "Team" + playersInRoom % 2;
+
 		Debug.Log(string.Format("{0} {1} {2} {3} {4}", sender.IsLocal, sender.UserId, sender.IsMasterClient, sender.NickName, sender.HasRejoined));
 		Debug.Log(message);
 	}
