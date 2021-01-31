@@ -30,7 +30,7 @@ public class Shoot : MonoBehaviour
                 GetComponent<Movement>().Shoot.Play();
 
                 lifeScript.takeDamage(damage);
-
+                transform.LookAt(enemy.transform);
                 
                 cd = 200;
             }
