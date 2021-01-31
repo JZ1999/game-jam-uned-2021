@@ -402,6 +402,7 @@ GameObject:
   - component: {fileID: -2294399054210786985}
   - component: {fileID: 2672106689512499575}
   - component: {fileID: -3097532335675996526}
+  - component: {fileID: -2613812825240278928}
   m_Layer: 0
   m_Name: PhotonPlayer1
   m_TagString: Untagged
@@ -511,6 +512,19 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &-2613812825240278928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151567994855823557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f2b2918a526cd499b59fa732025b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alpha: 0.539
 --- !u!1 &2433332729263068058
 GameObject:
   m_ObjectHideFlags: 0
