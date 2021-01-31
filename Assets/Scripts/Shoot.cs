@@ -17,7 +17,6 @@ public class Shoot : MonoBehaviour
     {
         if (canShoot)
         {
-            Debug.Log("funciona");
             
         }
     }
