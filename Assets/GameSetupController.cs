@@ -57,7 +57,7 @@ public class GameSetupController : MonoBehaviourPun, IPunObservable
 		int playersInRoom = PhotonNetwork.CurrentRoom.Players.Keys.Count;
 		spawn = spawns[playersInRoom % 2].position;
 		spawn.z += playersInRoom % 4;
-		GameObject player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), spawn, Quaternion.identity);
+		GameObject player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer1"), spawn, Quaternion.identity);
 		
 	}
 
