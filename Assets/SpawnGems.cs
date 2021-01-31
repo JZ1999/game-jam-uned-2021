@@ -13,7 +13,8 @@ public class SpawnGems : MonoBehaviour
 		Shuffle.action(spawns);
 		for (int i = 0; i < spawns.Length; i++)
 		{
-			Instantiate(gems[i], spawns[i]);
+			Instantiate(gems[i], spawns[i]).GetComponent<GemMovement>().spawn = spawns[i].transform;
+
 		}
     }
 }
