@@ -46,7 +46,7 @@ public class GameSetupController : MonoBehaviourPun, IPunObservable
 	[PunRPC]
 	void SendChat(Photon.Realtime.Player sender, object[] directions)
 	{
-		
+
 		if (sender.IsLocal)
 			return;
 
@@ -54,6 +54,7 @@ public class GameSetupController : MonoBehaviourPun, IPunObservable
 		//Debug.Log(string.Format("x: {1}  z: {1}", directions[0], directions[1]));
 
 		players[sender.ActorNumber].transform.position = new Vector3((float) directions[0], 1, (float) directions[1]);
+		players[sender.ActorNumber].transform.rotation = new Quaternion((float)directions[2], (float)directions[3], (float)directions[4], (float)directions[5]);
 	}
 
 	private void CreatePlayer()
@@ -63,7 +64,8 @@ public class GameSetupController : MonoBehaviourPun, IPunObservable
 		int playersInRoom = PhotonNetwork.CurrentRoom.Players.Keys.Count;
 		spawn = spawns[playersInRoom % 2].position;
 		spawn.z += playersInRoom % 4;
-		GameObject player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer1"), spawn, Quaternion.identity);
+		string prefab = "PhotonPlayer" + ((playersInRoom % 2) + 1);
+		GameObject player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", prefab), spawn, Quaternion.identity);
 		player.gameObject.tag = "Team" + playersInRoom % 2;
 
 	}

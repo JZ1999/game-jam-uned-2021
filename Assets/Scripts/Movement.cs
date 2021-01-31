@@ -58,7 +58,6 @@ public class Movement : MonoBehaviour
         
         if (other.transform == pivot)
         {
-            Debug.Log(11232345);
             GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
@@ -81,7 +80,9 @@ public class Movement : MonoBehaviour
 
 		if(pastPositionXZ[0] != transform.position.x || pastPositionXZ[1] != transform.position.z)
 		{
-			gameController.GetComponent<GameSetupController>().SendMessage(transform.position.x, transform.position.z);
+			gameController.GetComponent<GameSetupController>().SendMessage(transform.position.x, transform.position.z, transform.rotation.x,
+				transform.rotation.y, transform.rotation.z, transform.rotation.w);
+
 			if(!system.isPlaying)
 			{
 				system.Play();
