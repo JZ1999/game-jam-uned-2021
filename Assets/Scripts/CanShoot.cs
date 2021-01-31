@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CanShoot : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -12,6 +13,8 @@ public class CanShoot : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
+
+        ArrayList tags;
         Debug.Log(other.tag);
         if (other.tag == "Player")
         {

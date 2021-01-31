@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-	public int velocity = 1000;
+	protected int velocity = 1000;
 	private Camera cam;
     private Vector3 posWorld;
 
