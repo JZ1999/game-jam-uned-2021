@@ -50,8 +50,8 @@ public class GameSetupController : MonoBehaviourPun, IPunObservable
 		if (sender.IsLocal)
 			return;
 
-		Debug.Log(string.Format("{0} {1} {2} {3} {4} {5}", sender.IsLocal, sender.UserId, sender.IsMasterClient, sender.NickName, sender.HasRejoined, sender.ActorNumber));
-		Debug.Log(string.Format("x: {1}  z: {1}", directions[0], directions[1]));
+		//Debug.Log(string.Format("{0} {1} {2} {3} {4} {5}", sender.IsLocal, sender.UserId, sender.IsMasterClient, sender.NickName, sender.HasRejoined, sender.ActorNumber));
+		//Debug.Log(string.Format("x: {1}  z: {1}", directions[0], directions[1]));
 
 		players[sender.ActorNumber].transform.position = new Vector3((float) directions[0], 1, (float) directions[1]);
 	}

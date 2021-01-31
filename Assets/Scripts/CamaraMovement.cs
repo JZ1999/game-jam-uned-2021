@@ -9,6 +9,7 @@ public class CamaraMovement : MonoBehaviour
     private Vector3 diff;
     private Vector3 pastPosition;
     public GameSetupController collectorPlayers;
+    public string tag;
 
     void Start()
     {   
@@ -20,7 +21,7 @@ public class CamaraMovement : MonoBehaviour
     {
 
         if (player == null) {
-            int index = 1;
+            int index = 0;
             foreach (GameObject p in collectorPlayers.players.Values)
             {
                 Debug.Log(p.GetComponent<PhotonView>().isMine);
@@ -30,7 +31,10 @@ public class CamaraMovement : MonoBehaviour
                     player = p;
                 }
                 p.gameObject.tag = "Team" + index%2;
+                tag = p.gameObject.tag;
+                //GetComponentInChildren<CanShoot>().enemyTag = "Team" + (index + 1) % 2;
                 index++;
+                Debug.Log(index + "  123");
             }
 
             pastPosition = player.transform.position;

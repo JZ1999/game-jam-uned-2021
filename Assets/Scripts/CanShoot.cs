@@ -5,36 +5,46 @@ using UnityEngine;
 public class CanShoot : MonoBehaviour
 {
     public string enemyTag;
+    
     // Start is called before the first frame update
     void Start()
+
     {
 
-        ArrayList tags = new ArrayList();
-        tags.Add("Team0");
-        tags.Add("Team1");
-        tags.Remove(gameObject.tag);
-        foreach(string t in tags)
-        {
-            enemyTag = t;
-            Debug.Log(t);
-        }
+
+        
         
     }
+    private void Update()
+    {
+        if(enemyTag == "")
+        {
+            if(transform.parent.tag == "Team0") {
+                enemyTag = "Team1";
+            }else if(transform.parent.tag == "Team1")
+            {
+                enemyTag = "Team0";
+            }
+            
+        }
+    }
 
-    // Update is called once per frame
+
     private void OnTriggerEnter(Collider other)
     {
 
-        
         if (other.tag == enemyTag)
         {
             GetComponentInParent<Shoot>().canShoot = true;
+            GetComponentInParent<Shoot>().enemy = other.gameObject;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == enemyTag)
+        
+        if (other.tag == enemyTag)
         {
+            GetComponentInParent<Shoot>().enemy = null;
             GetComponentInParent<Shoot>().canShoot = false;
         }
     }
