@@ -4,26 +4,25 @@ using UnityEngine;
 
 public class CanShoot : MonoBehaviour
 {
-    public bool cShoot;
     // Start is called before the first frame update
     void Start()
     {
-        cShoot = GetComponentInParent<Shoot>().canShoot;
     }
 
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.tag);
         if (other.tag == "Player")
         {
-            cShoot = true;
+            GetComponentInParent<Shoot>().canShoot = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if(other.tag == "Player")
         {
-            cShoot = false;
+            GetComponentInParent<Shoot>().canShoot = false;
         }
     }
 }

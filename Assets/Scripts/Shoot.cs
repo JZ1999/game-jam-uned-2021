@@ -14,7 +14,7 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(0) && canShoot)
+        if (canShoot)
         {
             Debug.Log(11111);
         }
