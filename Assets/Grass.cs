@@ -14,21 +14,31 @@ public class Grass : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("grass"))
+		if (other.CompareTag("Grass"))
 		{
-			Color color = other.GetComponent<MeshRenderer>().material.color;
+			Debug.Log("in");
+			Color color = other.GetComponentsInChildren<MeshRenderer>()[0].material.color;
 			color.a = alpha;
-			other.GetComponent<MeshRenderer>().material.color = color;
+	
+			foreach (MeshRenderer o in other.GetComponentsInChildren<MeshRenderer>())
+			{
+				o.material.color = color;
+			}
 		}
 	}
 
 	private void OnTriggerExit(Collider other)
 	{
-		if (other.CompareTag("grass"))
+		if (other.CompareTag("Grass"))
 		{
-			Color color = other.GetComponent<MeshRenderer>().material.color;
+			Debug.Log("out");
+			Color color = other.GetComponentsInChildren<MeshRenderer>()[0].material.color;
+			
 			color.a = 1;
-			other.GetComponent<MeshRenderer>().material.color = color;
+			foreach (MeshRenderer o in other.GetComponentsInChildren<MeshRenderer>())
+			{
+				o.material.color = color;
+			}
 		}
 	}
 }

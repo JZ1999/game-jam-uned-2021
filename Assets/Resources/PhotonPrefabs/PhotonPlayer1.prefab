@@ -441,10 +441,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd8157c647a544368821fde0168e2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 200
   pivotPrefab: {fileID: 7244684229551163969, guid: e7b0ca6556a726e47a2925ad1994b401, type: 3}
   isClick: 0
   system: {fileID: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 19
 --- !u!114 &-4753232520968533217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,7 +470,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2151567994855823557}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1
@@ -524,7 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f2b2918a526cd499b59fa732025b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alpha: 0.539
+  alpha: 0.14
 --- !u!1 &2433332729263068058
 GameObject:
   m_ObjectHideFlags: 0

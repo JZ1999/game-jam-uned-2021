@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-	protected int velocity = 1000;
+	protected int velocity = 200;
 	private Camera cam;
     private Vector3 posWorld;
 
@@ -19,6 +19,8 @@ public class Movement : MonoBehaviour
     public bool isClick = false;
 
 	public ParticleSystem system;
+
+	public LayerMask mask;
 
 	// Use this for initializations
 	void Awake()
@@ -76,9 +78,10 @@ public class Movement : MonoBehaviour
             isClick = false;
         }// Pulsamos el botón izquierdo del ratón
 
-        if(isClick){RaycastHit hit;
+        if(isClick){
+			RaycastHit hit;
 
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, mask))
             {
                 posWorld = hit.point;
                 pivot.position = posWorld;
