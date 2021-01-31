@@ -20,7 +20,13 @@ public class Movement : MonoBehaviour
 
 	public ParticleSystem system;
 
-	public LayerMask mask;
+    public ParticleSystem HeartBroke;
+    public AudioSource HearthBrokeSound;
+
+    public ParticleSystem Shoot;
+    public AudioSource ShootSound;
+
+    public LayerMask mask;
 
 	// Use this for initializations
 	void Awake()
@@ -49,12 +55,24 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.transform == pivot)
         {
+            Debug.Log(11232345);
             GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
-
+    private void Update()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            isClick = false;
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            isClick = true;
+        }
+    }
     void FixedUpdate()
     {
 
