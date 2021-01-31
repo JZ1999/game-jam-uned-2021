@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class Grass : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
+		if (GetComponent<PhotonView>() && !GetComponent<PhotonView>().isMine) return; 
+
 		if (other.CompareTag("Grass"))
 		{
 			Debug.Log("in");
@@ -29,6 +32,8 @@ public class Grass : MonoBehaviour
 
 	private void OnTriggerExit(Collider other)
 	{
+		if (GetComponent<PhotonView>() && !GetComponent<PhotonView>().isMine) return;
+
 		if (other.CompareTag("Grass"))
 		{
 			Debug.Log("out");

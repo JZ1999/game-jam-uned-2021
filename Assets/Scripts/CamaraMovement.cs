@@ -24,8 +24,6 @@ public class CamaraMovement : MonoBehaviour
             int index = 0;
             foreach (GameObject p in collectorPlayers.players.Values)
             {
-                Debug.Log(p.GetComponent<PhotonView>().isMine);
-                Debug.Log(p.GetComponent<PhotonView>().OwnerActorNr);
                 if (p.GetComponent<PhotonView>().isMine)
                 {
                     player = p;
@@ -34,7 +32,6 @@ public class CamaraMovement : MonoBehaviour
                 tag = p.gameObject.tag;
                 //GetComponentInChildren<CanShoot>().enemyTag = "Team" + (index + 1) % 2;
                 index++;
-                Debug.Log(index + "  123");
             }
 
             pastPosition = player.transform.position;
