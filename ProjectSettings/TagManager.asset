@@ -8,6 +8,9 @@ TagManager:
   - Bullet
   - Gem
   - Base
+  - Missile
+  - Team1
+  - Team0
   layers:
   - Default
   - TransparentFX
