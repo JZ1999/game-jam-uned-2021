@@ -551,6 +551,8 @@ MonoBehaviour:
   canShoot: 0
   enemy: {fileID: 0}
   cd: 200
+  lifeScript: {fileID: 0}
+  damage: 50
 --- !u!114 &2766810957959319442
 MonoBehaviour:
   m_ObjectHideFlags: 0

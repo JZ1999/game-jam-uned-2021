@@ -1650,6 +1650,7 @@ GameObject:
   - component: {fileID: -2465206473439166927}
   - component: {fileID: -6277341255293157850}
   - component: {fileID: 943999429414675539}
+  - component: {fileID: -8643422150673968730}
   m_Layer: 0
   m_Name: PhotonPlayer2
   m_TagString: Untagged
@@ -1797,6 +1798,24 @@ MonoBehaviour:
   canShoot: 0
   enemy: {fileID: 0}
   cd: 200
+  lifeScript: {fileID: -8643422150673968730}
+  damage: 50
+--- !u!114 &-8643422150673968730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9019255739742048452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab747fb0d82e24182a221e19dd0a36c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsHearth: 55
+  actualPoints: 0
+  hearths: 0
+  gemInteraction: {fileID: 8731527921113879554}
 --- !u!1001 &328920757007500417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2105,11 +2124,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef697b4cb271b7642af97a1a70394631, type: 3}
---- !u!4 &9057480689755144008 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 418990, guid: ef697b4cb271b7642af97a1a70394631, type: 3}
-  m_PrefabInstance: {fileID: 9057480689755544550}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &9057480689774620390 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 19870976, guid: ef697b4cb271b7642af97a1a70394631, type: 3}
@@ -2118,5 +2132,10 @@ ParticleSystem:
 --- !u!82 &9057480689752536946 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8268948, guid: ef697b4cb271b7642af97a1a70394631, type: 3}
+  m_PrefabInstance: {fileID: 9057480689755544550}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9057480689755144008 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 418990, guid: ef697b4cb271b7642af97a1a70394631, type: 3}
   m_PrefabInstance: {fileID: 9057480689755544550}
   m_PrefabAsset: {fileID: 0}
