@@ -6,6 +6,7 @@ public class GemMovement : MonoBehaviour
 {
 	public float floatUp = .005f;
 	private float rotate = 90f;
+	public Transform spawn;
 
 	// Start is called before the first frame update
 	void Start()

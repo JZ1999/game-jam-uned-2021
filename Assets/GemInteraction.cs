@@ -15,6 +15,16 @@ public class GemInteraction : MonoBehaviour
         
     }
 
+	public void loseAGem() {
+
+		GameObject gem = inventory[0];
+		if (inventory.Contains(gem))
+		{
+			inventory.Remove(gem);
+			gem.transform.position = gem.GetComponent<GemMovement>().spawn.position;
+		}
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Gem"))

@@ -7,10 +7,13 @@ public class Shoot : MonoBehaviour
     public bool canShoot;
     public GameObject enemy;
     public int cd = 200;
+    public Life lifeScript;
+    public int damage = 50;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        lifeScript = GetComponent<Life>();
     }
 
     // Update is called once per frame
@@ -26,6 +29,9 @@ public class Shoot : MonoBehaviour
                 GetComponent<Movement>().Shoot.Play();
                 GetComponent<Movement>().Shoot.Play();
 
+                lifeScript.takeDamage(damage);
+
+                
                 cd = 200;
             }
             else
